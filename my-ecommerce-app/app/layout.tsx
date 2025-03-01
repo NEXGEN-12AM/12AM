@@ -13,26 +13,14 @@ export const metadata = {
   description: 'Where Today Meet Tomorrow',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
-        {/* <header className="bg-black text-white py-4">
-          <div className="container mx-auto px-4">
-            <h1 className="font-custom text-2xl font-bold">12AM</h1>
-          </div>
-        </header> */}
-
-        <main className="">{children}
-          
-        </main>
+      <body className="min-h-screen flex flex-col relative"> {/* Added `relative` for positioning */}
+        <main className="flex-1">{children}</main>
         <Footer />
-
       </body>
     </html>
   );
 }
+
