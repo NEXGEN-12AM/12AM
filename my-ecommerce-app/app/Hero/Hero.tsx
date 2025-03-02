@@ -1,18 +1,15 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const Hero: React.FC = () => {
   return (
-    <div className="w-full h-[100vh] flex flex-col justify-center items-start mt-24 mx-0 relative z-10">
+    <div className=" h-[100vh] flex flex-col justify-center items-start mt-24 mx-0 relative z-10">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="">
     <Image
       src="/bg.png"
       alt="Background"
       layout="fill"
       quality={100}
-      priority
-      className="object-cover fixed" // Add `fixed` to keep the image stationary
     />
   </div>
 
