@@ -14,14 +14,14 @@ const Hero: React.FC = () => {
   </div>
 
       {/* Text Container */}
-      <div className="flex flex-col absolute left-2 top-10 z-[12]">
+      <div className="flex flex-col absolute left-1 top-10 ">
         {/* TWELVE Text */}
-        <span className="font-['Aka-AcidGR-Compacta'] text-[300px] font-normal leading-[300px] text-black tracking-[3.31px]">
-          TWELVE
+        <span className="font-['Aka-AcidGR-Compacta'] text-[250px] font-normal leading-[200px] text-black tracking-[-50px] ">
+          T W E L V E
         </span>
 
         {/* AM Text */}
-        <span className="font-['Aka-AcidGR-Compacta'] text-[280px] font-normal leading-[250px] text-black tracking-[3.31px]">
+        <span className="font-['Aka-AcidGR-Compacta'] text-[280px] font-normal leading-[250px] text-black tracking-[-30px] mt-16 ">
           AM
         </span>
 

@@ -7,16 +7,17 @@ export default function HomePage() {
     <>
       <Head>
         <title>12AM | Home</title>
-        <meta name="description" content="Welcome to 12AM - Night vibes and more" />
+        <meta name="description" content="Welcome to 12AM" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Navbar />
       <main>
-        <main className="container mx-auto p-4">
+        <div className="container mx-auto p-4">
         <HeroSection />
-        </main>
+        </div>
       </main>
+
     </>
   );
 }
