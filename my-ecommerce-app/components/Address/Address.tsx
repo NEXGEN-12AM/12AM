@@ -1,65 +1,49 @@
-// components/AddressModal.js
-import { useState } from 'react';
-import { Pencil, X } from 'lucide-react';
+import React from 'react'
 
-const AddressModal = ({ isOpen, onClose, savedAddresses = [] }) => {
-  // If no addresses are provided, use a default example
-  const [addresses, setAddresses] = useState(savedAddresses.length > 0 ? savedAddresses : [
-    {
-      id: 1,
-      name: 'HENGLAY',
-      location: 'Phnom Penh, Cambodia',
-      phone: '010328281'
-    }
-  ]);
-
-  if (!isOpen) return null;
-
+const Address = () => {
   return (
-    <div className="fixed inset-0 bg-white flex flex-col p-6 z-50">
-      {/* Header with title and close button */}
-      <div className="flex justify-between items-center mb-6">
-        <div className="flex-1"></div> {/* Empty div for centering */}
-        <h2 className="text-xl font-bold text-center flex-1">ADDRESS</h2>
-        <div className="flex-1 flex justify-end">
-          <button 
-            onClick={onClose}
-            className="p-1"
-          >
-            <X size={24} />
-          </button>
-        </div>
+    <div className="w-full max-w-lg mx-auto p-6 relative">
+      {/* Close button */}
+      <button className="absolute top-2 right-2" title='cross'>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      {/* Heading with lines */}
+      <div className="flex items-center w-full mt-6 mb-6">
+        <div className="flex-grow h-px bg-gray-300"></div>
+        <h2 className="mx-4 text-xl font-bold uppercase">ADDRESS</h2>
+        <div className="flex-grow h-px bg-gray-300"></div>
       </div>
-
-      {/* Add Address Button */}
-      <div className="mt-4 mb-8">
-        <button 
-          className="w-full border-2 border-black py-3 font-semibold hover:bg-gray-100 transition duration-200"
-        >
+      
+      {/* Add Address button */}
+      <div className="flex justify-center mb-6">
+        <button className="w-full max-w-md px-8 py-3 border-2 border-gray-950 uppercase font-medium text-sm">
           ADD ADDRESS
         </button>
       </div>
-
-      {/* Saved Addresses */}
-      <div className="flex-1">
-        {addresses.map((address) => (
-          <div key={address.id} className="mb-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="font-bold">{address.name}</h3>
-                <p className="text-gray-800">{address.location}</p>
-                <p className="text-gray-800">{address.phone}</p>
-              </div>
-              <button className="p-1" title='cross'>
-                <Pencil size={18} />
-              </button>
-            </div>
-            <div className="mt-3 border-b border-gray-300 w-full"></div>
-          </div>
-        ))}
+      
+      {/* Address entry */}
+      <div className="mb-4 relative">
+        <div className="mb-1">
+          <h3 className="text-base font-bold">HENGLAY</h3>
+          <p className="text-sm text-gray-700">Phnom Penh, Cambodia</p>
+          <p className="text-sm text-gray-700">010328281</p>
+        </div>
+        
+        {/* Edit button - positioned to the right */}
+        <button className="absolute top-0 right-0 p-2" title='editButton'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+          </svg>
+        </button>
+        
+        {/* Horizontal line */}
+        <div className="h-px bg-gray-300 w-full mt-2"></div>
       </div>
     </div>
   );
 };
 
-export default AddressModal;
+export default Address

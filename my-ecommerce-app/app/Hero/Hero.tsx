@@ -1,30 +1,27 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const Hero: React.FC = () => {
   return (
-    <div className="w-full h-[100vh] flex flex-col justify-center items-start mt-24 mx-0 relative z-10">
+    <div className=" h-[100vh] flex flex-col justify-center items-start mt-24 mx-0 relative z-10">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="">
     <Image
       src="/bg.png"
       alt="Background"
       layout="fill"
       quality={100}
-      priority
-      className="object-cover fixed" // Add `fixed` to keep the image stationary
     />
   </div>
 
       {/* Text Container */}
-      <div className="flex flex-col absolute left-2 top-10 z-[12]">
+      <div className="flex flex-col absolute left-1 top-10 ">
         {/* TWELVE Text */}
-        <span className="font-['Aka-AcidGR-Compacta'] text-[300px] font-normal leading-[300px] text-black tracking-[3.31px]">
-          TWELVE
+        <span className="font-['Aka-AcidGR-Compacta'] text-[250px] font-normal leading-[200px] text-black tracking-[-50px] ">
+          T W E L V E
         </span>
 
         {/* AM Text */}
-        <span className="font-['Aka-AcidGR-Compacta'] text-[280px] font-normal leading-[250px] text-black tracking-[3.31px]">
+        <span className="font-['Aka-AcidGR-Compacta'] text-[280px] font-normal leading-[250px] text-black tracking-[-30px] mt-16 ">
           AM
         </span>
 
