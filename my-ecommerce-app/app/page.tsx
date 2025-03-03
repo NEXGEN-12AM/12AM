@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Navbar from "./NavBar/Navbar";
 import HeroSection from "./Hero/Hero";
+import Address from "@/components/Address/Address";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
         <HeroSection />
         </div>
       </main>
+      <Address/>
 
     </>
   );
