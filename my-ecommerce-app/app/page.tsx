@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Navbar from "./NavBar/Navbar";
 import HeroSection from "./Hero/Hero";
+import Collection from "@/components/Collection/Collection";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <main>
         <main className="container mx-auto p-4">
         <HeroSection />
+        <Collection />
         </main>
       </main>
     </>
