@@ -20,7 +20,8 @@ export default function HomePage() {
           <Collection />
         </div> {/* ✅ Fixed the extra closing tag */}
       </main>
-      <Address />
+      <Address/>
+
     </>
   );
 }
