@@ -16,12 +16,12 @@ const Hero: React.FC = () => {
       {/* Text Container */}
       <div className="flex flex-col absolute left-1 top-10 ">
         {/* TWELVE Text */}
-        <span className="font-['Aka-AcidGR-Compacta'] text-[250px] font-normal leading-[200px] text-black tracking-[-50px] ">
-          T W E L V E
+        <span className="font-['Aka-AcidGR-Compacta'] text-[290px] font-normal leading-[230px] text-black tracking-[3px] mt-4 ">
+          TWELVE
         </span>
 
         {/* AM Text */}
-        <span className="font-['Aka-AcidGR-Compacta'] text-[280px] font-normal leading-[250px] text-black tracking-[-30px] mt-16 ">
+        <span className="font-['Aka-AcidGR-Compacta'] text-[280px] font-normal leading-[250px] text-black tracking-[3px] mt-14 ">
           AM
         </span>
 

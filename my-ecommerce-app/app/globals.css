@@ -47,21 +47,28 @@ button {
 } */
 
 @font-face {
-  font-family: 'MyFont';
-  src: url('/fonts/MyFont-Regular.otf') format('opentype');
-  font-weight: 400; /* Regular */
+  font-family: 'Bronx';
+  src: url('/fonts/Bronx.otf') format('opentype');
+  font-weight: normal; /* Regular */
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'MyFont';
-  src: url('/fonts/MyFont-Bold.otf') format('opentype');
-  font-weight: 700; /* Bold */
+  font-family: 'Aka';
+  src: url('/fonts/Aka.ttf') format('truetype');
+  font-weight: normal; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kano';
+  src: url('/fonts/Kano.oft') format('opentype');
+  font-weight: normal; /* Bold */
   font-style: normal;
 }
 
 h1, h2, p {
-  font-family: 'MyFont';
+  font-family: 'bronx';
 }
 
 footer{

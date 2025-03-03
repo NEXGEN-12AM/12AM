@@ -5,7 +5,7 @@ const Collection : React.FC = () => {
     return (
 
         <div className="main-container w-[1200px] h-[810px] relative mx-auto my-0">
-            <h2 className="flex justify-center font-['Aka-AcidGR-Compacta'] text-[64px] left-[100%] font-normal text-black tracking-[0.31px] m-12 ml-[-10px]">
+            <h2 className="flex justify-center font-bronx text-[64px] left-[100%] font-normal text-black tracking-[0.31px] m-12 ml-[-10px]">
             NEW COLLECTION</h2>
     <div className="flex justify-center items-center">
         <div className="w-[512px] h-[656px] justify-center relative z-20 mt-0 mr-0 mb-0 ml-0">

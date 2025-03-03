@@ -13,7 +13,9 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        custom: ['MyFont','sans-serif'], //  'sans-serif'
+        aka: ["Aka", "sans-serif"],
+        bronx: ["Bronx", "sans-serif"],
+        kano: ["Kano", "sans-serif"],
       },
   },
   plugins: [],

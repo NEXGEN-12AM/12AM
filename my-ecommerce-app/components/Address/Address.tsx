@@ -13,13 +13,13 @@ const Address = () => {
       {/* Heading with lines */}
       <div className="flex items-center w-full mt-6 mb-6">
         <div className="flex-grow h-px bg-gray-300"></div>
-        <h2 className="mx-4 text-xl font-bold uppercase">ADDRESS</h2>
+        <h2 className="mx-4 text-xl text[36px] font-['Bronx'] tracking-[3px] uppercase">ADDRESS</h2>
         <div className="flex-grow h-px bg-gray-300"></div>
       </div>
       
       {/* Add Address button */}
       <div className="flex justify-center mb-6">
-        <button className="w-full max-w-md px-8 py-3 border-2 border-gray-950 uppercase font-medium text-sm">
+        <button className="w-full max-w-md px-8 py-3 border-2 border-gray-950 uppercase font-['Bronx'] tracking-[3px] ext-sm">
           ADD ADDRESS
         </button>
       </div>
@@ -28,8 +28,8 @@ const Address = () => {
       <div className="mb-4 relative">
         <div className="mb-1">
           <h3 className="text-base font-bold">HENGLAY</h3>
-          <p className="text-sm text-gray-700">Phnom Penh, Cambodia</p>
-          <p className="text-sm text-gray-700">010328281</p>
+          <p className="text-sm text-gray-700 font-['Kano']">Phnom Penh, Cambodia</p>
+          <p className="text-sm text-gray-700 font-['Kano']">010328281</p>
         </div>
         
         {/* Edit button - positioned to the right */}
@@ -46,4 +46,4 @@ const Address = () => {
   );
 };
 
-export default Address
+export default Address;

@@ -3,7 +3,7 @@
 export default function Nav() {
   
   return (
-    <div className="main-container fixed top-0 left-0 w-full h-[80px] z-[50]">
+    <div className="main-container fixed top-0 left-0 w-full h-[80px] z-[50] shadow-md">
       
   {/* Black Section */}
   <div className="absolute top-0 left-0 w-full h-[40px] bg-black"></div>
@@ -36,16 +36,16 @@ export default function Nav() {
 
     {/* Navigation Container */}
     {/* Navigation Container */}
-<div className="w-full h-[40px] flex justify-center items-center absolute top-10 left-0">
+<div className="font-bronx w-full h-[40px] flex justify-center items-center absolute top-10 left-0">
   <div className="w-full max-w-6xl flex justify-between items-center px-4">
     
     {/* Left Links */}
     <div className="flex space-x-32">
-      <span className="font-['Bronx'] text-[22.75px] font-normal text-black cursor-pointer relative group">
+      <span className=" text-[22.75px] font-normal text-black cursor-pointer relative group">
         HOME
         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
       </span>
-      <span className="font-['Bronx'] text-[22.75px] font-normal text-black cursor-pointer relative group">
+      <span className=" text-[22.75px] font-normal text-black cursor-pointer relative group">
         SHOP
         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
       </span>
@@ -53,11 +53,11 @@ export default function Nav() {
     
     {/* Right Links */}
     <div className="flex space-x-32">
-      <span className="font-['Bronx'] text-[22.75px] font-normal text-black cursor-pointer relative group">
+      <span className="text-[22.75px] font-normal text-black cursor-pointer relative group">
         CONTACT
         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
       </span>
-      <span className="font-['Bronx'] text-[22.75px] font-normal text-black cursor-pointer relative group">
+      <span className="text-[22.75px] font-normal text-black cursor-pointer relative group">
         CART
         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
       </span>
