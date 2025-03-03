@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "./NavBar/Navbar";
 import HeroSection from "./Hero/Hero";
 import Address from "@/components/Address/Address";
+import EditProfile from "@/components/Profile/Profile";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
         </div>
       </main>
       <Address/>
+      <EditProfile/>
 
     </>
   );
