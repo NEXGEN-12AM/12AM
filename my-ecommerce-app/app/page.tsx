@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Navbar from "./NavBar/Navbar";
 import HeroSection from "./Hero/Hero";
+import Collection from "@/components/Collection/Collection";
 import Address from "@/components/Address/Address";
-import EditProfile from "@/components/Profile/Profile";
 
 export default function HomePage() {
   return (
@@ -16,11 +16,11 @@ export default function HomePage() {
       <Navbar />
       <main>
         <div className="container mx-auto p-4">
-        <HeroSection />
-        </div>
+          <HeroSection />
+          <Collection />
+        </div> {/* ✅ Fixed the extra closing tag */}
       </main>
       <Address/>
-      <EditProfile/>
 
     </>
   );
