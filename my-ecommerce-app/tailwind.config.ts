@@ -8,6 +8,7 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+<<<<<<< HEAD
     extend: {
       colors: {
         background: "var(--background)",
@@ -18,7 +19,7 @@ export default {
         bronx: ["Bronx", "sans-serif"],
         kano: ["Kano", "sans-serif"],
       },
-
+=======
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',
@@ -75,6 +76,7 @@ export default {
   		}
   	},
   	plugins: []
+>>>>>>> a6ee8cf49864e68386447fc811d67da65eeae515
   },
     plugins: [require("tailwindcss-animate")]
 }satisfies Config;
