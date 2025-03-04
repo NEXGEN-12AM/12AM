@@ -30,7 +30,7 @@ export default function Nav() {
     </div>
 
     {/* Center Logo */}
-    <span className="flex justify-center items-center font-['Aka-AcidGR-Compacta'] text-[47.32px] font-normal leading-[49.74px] text-white tracking-[3.31px] absolute left-1/2 transform -translate-x-1/2 top-[22px] whitespace-nowrap z-[12]">
+    <span className="flex justify-center items-center font-humane text-[70.32px] font-normal leading-[49.74px] text-white tracking-[3.31px] absolute left-1/2 transform -translate-x-1/2 top-[22px] whitespace-nowrap z-[12]">
       12AM
     </span>
 

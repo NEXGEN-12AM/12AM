@@ -54,10 +54,10 @@ button {
 }
 
 @font-face {
-  font-family: 'Aka';
-  src: url('/fonts/Aka.ttf') format('truetype');
+  font-family: 'Humane';
+  src: url('/fonts/Humane.ttf') format('truetype');
   font-weight: normal; /* Bold */
-  font-style: normal;
+  font-style: normal
 }
 
 @font-face {

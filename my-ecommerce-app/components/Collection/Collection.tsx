@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 const Collection : React.FC = () => {
     return (
 
-        <div className="main-container w-[1200px] h-[810px] relative mx-auto my-0">
-            <h2 className="flex justify-center font-bronx text-[64px] left-[100%] font-normal text-black tracking-[0.31px] m-12 ml-[-10px]">
-            NEW COLLECTION</h2>
-    <div className="flex justify-center items-center">
+        <div className="main-container w-auto h-[810px] relative mx-auto mt-0">
+           <div> <h2 className="flex justify-center font-humane text-[48px] md:text-[72px] lg:text-[86px] font-normal text-black tracking-[3.31px] my-8">
+           NEW COLLECTION</h2>
+           </div>
+    <div className="flex justify-center items-center mt-6">
         <div className="w-[512px] h-[656px] justify-center relative z-20 mt-0 mr-0 mb-0 ml-0">
         <div className="w-[475px] h-[656px] bg-[url(https://static.codia.ai/image/2025-03-03/37162795-5f40-4d72-8b7a-2ce7119faac7.svg)] bg-cover bg-no-repeat absolute top-0 left-0" />
         <div className="w-[56px] h-[56px] bg-[url(https://static.codia.ai/image/2025-03-03/07710ea8-0bc6-44be-ab78-ad790726ecb5.svg)] bg-cover bg-no-repeat absolute top-0 left-[88px] z-10" />

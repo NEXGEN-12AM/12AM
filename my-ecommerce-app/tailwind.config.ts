@@ -13,7 +13,7 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        aka: ["Aka", "sans-serif"],
+        humane: ["Humane", "sans-serif"],
         bronx: ["Bronx", "sans-serif"],
         kano: ["Kano", "sans-serif"],
       },

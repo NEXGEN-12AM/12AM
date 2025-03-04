@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "./NavBar/Navbar";
 import HeroSection from "./Hero/Hero";
 import Collection from "@/components/Collection/Collection";
+import Item from "@/components/Items/items";
 import Address from "@/components/Address/Address";
 
 export default function HomePage() {
@@ -14,14 +15,21 @@ export default function HomePage() {
       </Head>
 
       <Navbar />
-      <main>
-        <div className="container mx-auto p-4">
+
+      {/* Main Layout Wrapper */}
+      <main className="relative w-full flex flex-col items-center">
+        {/* Content Wrapper with Spacing */}
+        <div className="container mx-auto p-4 space-y-32 relative z-10">
           <HeroSection />
           <Collection />
-        </div> {/* ✅ Fixed the extra closing tag */}
-      </main>
-      <Address/>
+          <Item />
+        </div>
 
+        {/* Address Section with Background Layering Fixed */}
+        <div className="relative w-full z-20 bg-white">
+          <Address />
+        </div>
+      </main>
     </>
   );
 }
