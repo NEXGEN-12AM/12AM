@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
       <div className="flex flex-col absolute left-1 top-10">
   {/* TWELVE Text */}
   <span className="font-humane font-bold text-[180px] md:text-[250px] lg:text-[300px] xl:text-[350px] leading-[120px] md:leading-[180px] lg:leading-[210px] xl:leading-[230px] text-black tracking-[5px] md:tracking-[8px] xl:tracking-[10px] mt-2 md:mt-4">
-    TWELVE
+  TWELVE
   </span>
 
   {/* AM Text */}
