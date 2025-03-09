@@ -5,7 +5,7 @@ import Link from 'next/link';
 const HeroSection = () => {
   return (
     <div className="relative w-full bg-black text-white">
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row items-center">
           {/* Left text content */}
           <div className="md:w-1/2 z-10">

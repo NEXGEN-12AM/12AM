@@ -6,7 +6,7 @@ const Collection : React.FC = () => {
 
         <div className="main-container w-auto h-[810px] relative mx-auto mt-0">
            <div> <h2 className="flex justify-center font-humane text-[48px] md:text-[72px] lg:text-[86px] font-normal text-black tracking-[3.31px] my-8">
-           NEW COLLECTION</h2>
+           NEW ARRIVAL</h2>
            </div>
     <div className="flex justify-center items-center mt-6">
         <div className="w-[512px] h-[656px] justify-center relative z-20 mt-0 mr-0 mb-0 ml-0">
