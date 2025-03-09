@@ -3,7 +3,7 @@
 export default function Nav() {
   
   return (
-    <div className="main-container fixed top-0 left-0 w-full h-[80px] z-[50] shadow-md">
+    <div className="main-container fixed top-0 left-0 w-full h-[80px] z-[50]">
       
   {/* Black Section */}
   <div className="absolute top-0 left-0 w-full h-[40px] bg-black"></div>
