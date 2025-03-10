@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
 
 const Collection : React.FC = () => {
     return (
@@ -14,7 +12,7 @@ const Collection : React.FC = () => {
         <div className="w-[56px] h-[56px] bg-[url(https://static.codia.ai/image/2025-03-03/07710ea8-0bc6-44be-ab78-ad790726ecb5.svg)] bg-cover bg-no-repeat absolute top-0 left-[88px] z-10" />
         <div className="w-[7.47%] h-[5.83%] bg-[url(https://static.codia.ai/image/2025-03-03/55291236-ac7d-4667-989d-7880e316298c.svg)] bg-[length:100%_100%] bg-no-repeat absolute top-[3.85%] left-[2.93%] z-[12]" />
         <div className="w-[37.38%] h-[10.12%] bg-[url(https://static.codia.ai/image/2025-03-03/18cbe451-6951-4f5b-a66a-9622b89bfacb.svg)] bg-[length:100%_100%] bg-no-repeat absolute top-[6.75%] left-[51.37%] z-20" />
-        <div className="w-[420px] h-[450px] bg-[url(https://static.codia.ai/image/2025-03-03/af00b996-8e69-4b79-8f54-e3249d010c01.png)] bg-cover bg-no-repeat absolute top-[29px] left-[0%] z-[10]" />
+        <div className="w-[400px] h-[450px] bg-[url(https://static.codia.ai/image/2025-03-03/af00b996-8e69-4b79-8f54-e3249d010c01.png)] bg-cover bg-no-repeat absolute top-[29px] left-[-10%] z-[10]" />
         <div className="w-[27.3px] h-[28.86px] bg-[url(https://static.codia.ai/image/2025-03-03/b19ab0f2-0a03-4ef2-bf10-f9c0c0e1422c.svg)] bg-cover bg-no-repeat absolute top-[225px] left-[10.22px] overflow-hidden z-[15]" />
         <div className="w-[27.3px] h-[28.86px] bg-[url(https://static.codia.ai/image/2025-03-03/9fba6244-e149-4e0b-92c2-ccef94ba27dc.svg)] bg-cover bg-no-repeat absolute top-[259.32px] left-[10.22px] overflow-hidden z-[16]" />
         <div className="w-[27.3px] h-[28.86px] bg-[url(https://static.codia.ai/image/2025-03-03/5095cb1d-1de3-4470-86bd-9796e237898c.svg)] bg-cover bg-no-repeat absolute top-[293.64px] left-[10.22px] overflow-hidden z-[17]" />
@@ -34,13 +32,13 @@ const Collection : React.FC = () => {
         L
       </span>
     </div>
-    <span className="flex h-[50px] justify-start items-center font-['Aka-AcidGR-Compacta'] text-[48px] font-normal leading-[50px] text-[#fff] absolute top-[492px] left-[354px] text-left whitespace-nowrap z-[11]">
+    <span className="flex h-[40px] justify-start items-center font-['Aka-AcidGR-Compacta'] text-[40px] font-normal leading-[50px] text-[#fff] absolute top-[492px] left-[330px] text-left whitespace-nowrap z-[11]">
       19.99$
     </span>
     <div className="w-[114.207px] h-[69px] bg-[#72ef25] rounded-[27.759px] absolute top-[577px] left-[354px] z-[8]">
       <div className="w-[44.615px] h-[46.52px] bg-[url(https://static.codia.ai/image/2025-03-03/7155f50f-fa83-4848-8758-e8c8c069b8e7.svg)] bg-[length:100%_100%] bg-no-repeat relative z-[9] mt-[13.978px] mr-0 mb-0 ml-[35px]" />
     </div>
-    <span className="flex h-[50px] justify-start items-center font-['Aka-AcidGR-Compacta'] text-[48px] font-normal leading-[50px] text-[#000] tracking-[5.28px] absolute top-[585px] left-[119px] text-left whitespace-nowrap z-[19]">
+    <span className="flex h-[35px] justify-start items-center font-['Aka-AcidGR-Compacta'] text-[48px] font-normal leading-[50px] text-[#000] tracking-[5.28px] absolute top-[585px] left-[100px] text-left whitespace-nowrap z-[19]">
       VIEW
     </span>
   </div>

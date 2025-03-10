@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const Item: React.FC = () => {
   return (
     <div className="main-container max-w-[1920px] w-full h-auto mx-auto my-10 px-4 md:px-8 lg:px-16">
