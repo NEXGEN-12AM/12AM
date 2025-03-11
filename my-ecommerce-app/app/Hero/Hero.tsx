@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Sparkle from "@/components/sparkle";
+import ScrollingText from "@/components/Hero/ScrollingText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +68,7 @@ const Hero: React.FC = () => {
           src="/wall.png"
           alt="Background"
           layout="fill"
-          objectFit="cover"
+          style={{ objectFit: "cover" }} 
           quality={100}
           priority
         />
@@ -127,22 +128,11 @@ const Hero: React.FC = () => {
     className="drop-shadow-lg max-w-[90%] md:max-w-[60%] lg:max-w-[45%] xl:max-w-[40%] 2xl:max-w-[35%] h-auto"
   />
 </div>
-      </div>
 
-      {/* "TWELVE TWELVE TWELVE" Section at the Bottom */}
-      <div className="absolute bottom-[-5px] left-0 w-full">
-        <div className="absolute top-0 left-0 w-full h-full bg-black z-0"></div>
-
-        <Image
-          src="/twelve1.png"
-          alt="Twelve Twelve Twelve"
-          width={1920}
-          height={80}
-          objectFit="cover"
-          className="relative z-10"
-        />
       </div>
-    </div>
+      <ScrollingText/>
+      </div>
+    
   );
 };
 

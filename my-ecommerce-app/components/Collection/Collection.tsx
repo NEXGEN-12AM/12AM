@@ -1,49 +1,104 @@
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
-const Collection : React.FC = () => {
-    return (
+const products = [
+  { id: 1, image: "/shop/card1.png", price: "$14.99" },
+  { id: 2, image: "/shop/card1.png", price: "$19.99" },
+  { id: 3, image: "/shop/card1.png", price: "$24.99" },
+];
 
-        <div className="main-container w-auto h-[810px] relative mx-auto mt-0">
-           <div> <h2 className="flex justify-center font-humane text-[48px] md:text-[72px] lg:text-[86px] font-normal text-black tracking-[3.31px] my-8">
-           NEW ARRIVAL</h2>
-           </div>
-    <div className="flex justify-center items-center mt-6">
-        <div className="w-[512px] h-[656px] justify-center relative z-20 mt-0 mr-0 mb-0 ml-0">
-        <div className="w-[475px] h-[656px] bg-[url(https://static.codia.ai/image/2025-03-03/37162795-5f40-4d72-8b7a-2ce7119faac7.svg)] bg-cover bg-no-repeat absolute top-0 left-0" />
-        <div className="w-[56px] h-[56px] bg-[url(https://static.codia.ai/image/2025-03-03/07710ea8-0bc6-44be-ab78-ad790726ecb5.svg)] bg-cover bg-no-repeat absolute top-0 left-[88px] z-10" />
-        <div className="w-[7.47%] h-[5.83%] bg-[url(https://static.codia.ai/image/2025-03-03/55291236-ac7d-4667-989d-7880e316298c.svg)] bg-[length:100%_100%] bg-no-repeat absolute top-[3.85%] left-[2.93%] z-[12]" />
-        <div className="w-[37.38%] h-[10.12%] bg-[url(https://static.codia.ai/image/2025-03-03/18cbe451-6951-4f5b-a66a-9622b89bfacb.svg)] bg-[length:100%_100%] bg-no-repeat absolute top-[6.75%] left-[51.37%] z-20" />
-        <div className="w-[400px] h-[450px] bg-[url(https://static.codia.ai/image/2025-03-03/af00b996-8e69-4b79-8f54-e3249d010c01.png)] bg-cover bg-no-repeat absolute top-[29px] left-[-10%] z-[10]" />
-        <div className="w-[27.3px] h-[28.86px] bg-[url(https://static.codia.ai/image/2025-03-03/b19ab0f2-0a03-4ef2-bf10-f9c0c0e1422c.svg)] bg-cover bg-no-repeat absolute top-[225px] left-[10.22px] overflow-hidden z-[15]" />
-        <div className="w-[27.3px] h-[28.86px] bg-[url(https://static.codia.ai/image/2025-03-03/9fba6244-e149-4e0b-92c2-ccef94ba27dc.svg)] bg-cover bg-no-repeat absolute top-[259.32px] left-[10.22px] overflow-hidden z-[16]" />
-        <div className="w-[27.3px] h-[28.86px] bg-[url(https://static.codia.ai/image/2025-03-03/5095cb1d-1de3-4470-86bd-9796e237898c.svg)] bg-cover bg-no-repeat absolute top-[293.64px] left-[10.22px] overflow-hidden z-[17]" />
-        <div className="w-[27.3px] h-[28.86px] bg-[url(https://static.codia.ai/image/2025-03-03/4ef5293c-a47b-4c24-a83c-ffe529015449.svg)] bg-cover bg-no-repeat absolute top-[327.96px] left-[10.22px] overflow-hidden z-[18]" />
-        <div className="w-[84px] h-[55px] bg-[#000] rounded-[19px] border-solid border border-[#000] absolute top-[490px] left-[8px] z-[4]">
-      <span className="flex h-[19px] justify-start items-start font-['Bronx'] text-[24px] font-normal leading-[18.912px] text-[#fff] absolute top-[17px] left-[30px] text-left whitespace-nowrap z-[5]">
-        S
-      </span>
-    </div>
-    <div className="w-[84px] h-[55px] bg-[#fff] rounded-[19px] border-solid border border-[#000] absolute top-[490px] left-[102px] z-[3]">
-      <span className="flex h-[19px] justify-start items-start font-['Bronx'] text-[24px] font-normal leading-[18.912px] text-[#000] absolute top-[17px] left-[33px] text-left whitespace-nowrap z-[6]">
-        M
-      </span>
-    </div>
-    <div className="w-[84px] h-[55px] bg-[#fff] rounded-[19px] border-solid border border-[#000] absolute top-[490px] left-[196px] z-[2]">
-      <span className="flex h-[19px] justify-start items-start font-['Bronx'] text-[24px] font-normal leading-[18.912px] text-[#000] absolute top-[17px] left-[calc(50%-2px)] text-left whitespace-nowrap z-[7]">
-        L
-      </span>
-    </div>
-    <span className="flex h-[40px] justify-start items-center font-['Aka-AcidGR-Compacta'] text-[40px] font-normal leading-[50px] text-[#fff] absolute top-[492px] left-[330px] text-left whitespace-nowrap z-[11]">
-      19.99$
-    </span>
-    <div className="w-[114.207px] h-[69px] bg-[#72ef25] rounded-[27.759px] absolute top-[577px] left-[354px] z-[8]">
-      <div className="w-[44.615px] h-[46.52px] bg-[url(https://static.codia.ai/image/2025-03-03/7155f50f-fa83-4848-8758-e8c8c069b8e7.svg)] bg-[length:100%_100%] bg-no-repeat relative z-[9] mt-[13.978px] mr-0 mb-0 ml-[35px]" />
-    </div>
-    <span className="flex h-[35px] justify-start items-center font-['Aka-AcidGR-Compacta'] text-[48px] font-normal leading-[50px] text-[#000] tracking-[5.28px] absolute top-[585px] left-[100px] text-left whitespace-nowrap z-[19]">
-      VIEW
-    </span>
-  </div>
-</div>
-      </div>
+const Collection: React.FC = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const nextProduct = () => {
+    setSelectedIndex((prevIndex) => (prevIndex + 1) % products.length);
+  };
+
+  const prevProduct = () => {
+    setSelectedIndex((prevIndex) =>
+      prevIndex === 0 ? products.length - 1 : prevIndex - 1
     );
+  };
+
+  return (
+    <div className="main-container w-full min-h-screen flex flex-col items-center justify-center">
+      {/* Title */}
+      <h2 className="text-center font-humane text-[48px] md:text-[72px] lg:text-[86px] font-normal text-black tracking-[3.31px] my-8">
+        NEW ARRIVAL
+      </h2>
+
+      {/* Product Selection Container */}
+      <div className="relative w-full flex items-center justify-center">
+        {/* Left Button */}
+        <button
+          className="absolute left-4 z-20 px-4 py-2 bg-black text-white rounded-full"
+          onClick={prevProduct}
+        >
+          ◀
+        </button>
+
+        {/* Card Container */}
+        <div className="relative w-full max-w-lg h-[500px] flex items-center justify-center">
+          <AnimatePresence>
+            {products.map((product, index) => {
+              const position =
+                (index - selectedIndex + products.length) % products.length;
+
+              let scale = 1;
+              let zIndex = 1;
+              let opacity = 1;
+              let xOffset = 0;
+
+              if (position === 0) {
+                scale = 1.2; // Center card is bigger
+                zIndex = 10;
+              } else if (position === 1 || position === products.length - 1) {
+                scale = 0.9; // Side cards are smaller
+                zIndex = 5;
+                opacity = 0.6;
+                xOffset = position === 1 ? 120 : -120; // Left & Right Offset
+              }
+
+              return (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{
+                    opacity,
+                    scale,
+                    x: xOffset,
+                    zIndex,
+                  }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute flex flex-col items-center"
+                >
+                  <Image
+                    src={product.image}
+                    alt="Product Image"
+                    width={300}
+                    height={400}
+                    className="rounded-lg "
+                  />
+                  <div className="mt-4 text-xl font-bold">{product.price}</div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
+
+        {/* Right Button */}
+        <button
+          className="absolute right-4 z-20 px-4 py-2 bg-black text-white rounded-full"
+          onClick={nextProduct}
+        >
+          ▶
+        </button>
+      </div>
+    </div>
+  );
 };
+
 export default Collection;
