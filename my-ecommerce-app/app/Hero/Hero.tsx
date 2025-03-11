@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
   const modelRef = useRef(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // Text animation (TWELVE AM)
       gsap.fromTo(
         textRef.current,
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
     <h1 className="text-[clamp(120px,20vw,480px)] font-humane leading-none ml-0 sm:ml-4">
       TWELVE
     </h1>
-    <span
+    <span 
       className="text-[clamp(120px,20vw,480px)] font-humane leading-none text-white"
       style={{
         WebkitTextStroke: "4px black",
