@@ -48,10 +48,10 @@ const ShieldIcon: React.FC = () => (
 const Footer: React.FC = () => {
   // Social media links data with TypeScript interface
   const socialLinks: SocialLink[] = [
-    { icon: <Facebook size={24} />, url: "#", ariaLabel: "Facebook" },
-    { icon: <TikTokIcon />, url: "#", ariaLabel: "TikTok" },
-    { icon: <TelegramIcon />, url: "#", ariaLabel: "Telegram" },
-    { icon: <Instagram size={24} />, url: "#", ariaLabel: "Instagram" },
+    { icon: <Facebook size={24} />, url: "https://www.facebook.com/yav.yav.7359447", ariaLabel: "Facebook" },
+    { icon: <TikTokIcon />, url: "https://www.facebook.com/na.theng.549", ariaLabel: "TikTok" },
+    { icon: <TelegramIcon />, url: "https://www.facebook.com/Norakdareach", ariaLabel: "Telegram" },
+    { icon: <Instagram size={24} />, url: "https://www.facebook.com/taing.chongyean/", ariaLabel: "Instagram" },
   ];
   
   // Customer service links data with TypeScript interface
