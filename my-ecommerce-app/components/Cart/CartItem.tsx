@@ -1,6 +1,8 @@
 "use client"; // Fix for Next.js Client Component Error
 
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ Import useRouter
+import { motion } from "framer-motion"; // ✅ Import motion from framer-motion
 
 interface CartItem {
   id: number;
@@ -12,6 +14,8 @@ interface CartItem {
 }
 
 const CartPage = () => {
+  const router = useRouter(); // ✅ Initialize Router
+
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: 1,
@@ -143,9 +147,16 @@ const CartPage = () => {
 
       {/* Buttons */}
       <div className="flex justify-between mt-10">
-        <button className="px-8 py-3 border border-gray-600 text-gray-800 text-lg rounded-lg">
+        {/* ✅ Modified "Continue Shopping" Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => router.push("/")} // ✅ Navigates to Home Page
+          className="px-8 py-3 border border-gray-600 text-gray-800 text-lg rounded-lg hover:bg-gray-200 transition"
+        >
           CONTINUE SHOPPING
-        </button>
+        </motion.button>
+
         <button className="px-8 py-3 bg-black text-white text-lg rounded-lg">
           CHECKOUT
         </button>

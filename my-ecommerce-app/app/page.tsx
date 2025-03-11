@@ -30,12 +30,6 @@ export default function HomePage() {
         <div className="relative w-full z-20 bg-white">
           <Address />
         </div>
-
-        {/* Cart Section */}
-        <div className="container mx-auto p-6">
-          <Cart
-          />
-        </div>
       </main>
     </>
   );
