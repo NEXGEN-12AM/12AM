@@ -61,7 +61,7 @@ export default function Nav() {
       <Link href="/cart">
       <span className="text-[22.75px] font-normal text-black cursor-pointer relative group">
         CART
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 mt-4 bg-black transition-all duration-300 group-hover:w-full"></span>
       </span>
     </Link>
     </div>

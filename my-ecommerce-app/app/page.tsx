@@ -37,10 +37,6 @@ export default function HomePage() {
           <Address />
         </div>
 
-        {/* Cart Section - Fixed */}
-        <div className="container mx-auto p-6">
-          <Cart />
-        </div>
 
         <div><LoginPage/></div>
       </main>
