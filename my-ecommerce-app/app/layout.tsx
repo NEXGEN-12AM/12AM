@@ -1,10 +1,6 @@
-// app/layout.tsx
-// import type { Metadata } from 'next';
 
 import './globals.css';
 import Footer from '../components/Footer/Footer';
-
-
 
 
 export const metadata = {
@@ -15,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col relative"> {/* Added `relative` for positioning */}
+      <body className="min-h-screen flex flex-col relative"> 
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Pencil, Trash, X } from "lucide-react";
@@ -42,8 +40,10 @@ const AddressManager: React.FC = () => {
     };
 
     if (currentAddress) {
+      // Update Existing Address
       setAddresses((prev) => prev.map((addr) => (addr.id === currentAddress.id ? newAddress : addr)));
     } else {
+      // Add New Address
       setAddresses((prev) => [...prev, newAddress]);
     }
 
@@ -77,7 +77,7 @@ const AddressManager: React.FC = () => {
               <button onClick={() => editAddress(address)} className="text-blue-500 hover:text-blue-700" title="Edit Address">
                 <Pencil size={18} />
               </button>
-              <button onClick={() => deleteAddress(address.id)} className="text-red-500 hover:text-red-700" title="Delete Address"> 
+              <button onClick={() => deleteAddress(address.id)} className="text-red-500 hover:text-red-700" title="Delete Address">
                 <Trash size={18} />
               </button>
             </div>
