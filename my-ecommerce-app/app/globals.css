@@ -67,6 +67,13 @@ button {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Cehua';
+  src: url('/fonts/Cehua') format('opentype');
+  font-weight: normal; /* Regular */
+  font-style: normal;
+}
+
 h1, h2, p {
   font-family: 'bronx';
 }

@@ -57,6 +57,7 @@ const config: Config = {
         bronx: ["Bronx", "sans-serif"],
         kano: ["Kano", "sans-serif"],
         custom: ["MyFont", "sans-serif"],
+        cehua: ["Cehua", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
