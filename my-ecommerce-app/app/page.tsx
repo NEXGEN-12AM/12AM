@@ -31,17 +31,17 @@ export default function HomePage() {
     <Item />
   </div>
 
+        <div><LoginPage/></div>
+
+
         {/* Button to navigate to the Address Page */}
         <div className="mt-6">
           <Link href="/address">
-            <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+            <button className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-700">
               Manage Addresses
             </button>
           </Link>
         </div>
-
-
-        <div><LoginPage/></div>
       </main>
     </>
   );
