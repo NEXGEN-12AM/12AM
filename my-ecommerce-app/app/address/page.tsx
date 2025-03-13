@@ -13,7 +13,7 @@ export default function AddressPage() {
 
       {/* Back to Home Button */}
       <Link href="/">
-        <button className="mt-4 px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-700">
+        <button className="mt-4 px-4 py-2 bg-black text-white rounded-md hover:bg-gray-700">
           Back to Home
         </button>
       </Link>

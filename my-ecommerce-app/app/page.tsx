@@ -30,6 +30,7 @@ export default function HomePage() {
     <Collection />
     <Item />
   </div>
+
         <div><LoginPage/></div>
       </main>
     </>
