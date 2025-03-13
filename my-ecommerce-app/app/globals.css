@@ -139,6 +139,20 @@ footer{
     --chart-5: 340 75% 55%;
   }
 }
+@keyframes glitch {
+  0% { transform: translate(0, 0); opacity: 0.6; }
+  20% { transform: translate(-2px, -2px); opacity: 0.8; }
+  40% { transform: translate(2px, 2px); opacity: 0.6; }
+  60% { transform: translate(-2px, 2px); opacity: 0.8; }
+  80% { transform: translate(2px, -2px); opacity: 0.6; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+
+@layer utilities {
+  .animate-glitch {
+    animation: glitch 0.3s infinite alternate;
+  }
+}
 
 
 
