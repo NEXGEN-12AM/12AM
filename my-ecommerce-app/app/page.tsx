@@ -3,9 +3,8 @@ import Navbar from "./NavBar/Navbar";
 import HeroSection from "./Hero/Hero";
 import Collection from "@/components/Collection/Collection";
 import Item from "@/components/Items/items";
-import Address from "@/components/Address/Address";
-import Cart from "@/components/Cart/CartItem";
 import LoginPage from "./login/page";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -32,17 +31,7 @@ export default function HomePage() {
     <Item />
   </div>
 
-        {/* Address Section with Background Layering Fixed */}
-        <div className="relative w-full z-20 bg-white">
-          <Address />
-        </div>
-
-        {/* Cart Section - Fixed */}
-        <div className="container mx-auto p-6">
-          <Cart />
-        </div>
-
-        <div><LoginPage/></div>
+        
       </main>
     </>
   );
