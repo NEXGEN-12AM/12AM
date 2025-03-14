@@ -2,10 +2,15 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; 
 
 export default function Nav() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const profileRef = useRef<HTMLDivElement | null>(null);
+  const [user, setUser] = useState(null); // Change to user object if logged in
 
   // ✅ Close menu when clicking outside
   useEffect(() => {
@@ -47,12 +52,14 @@ export default function Nav() {
 
       {/* Right Profile Icon */}
       <div className="w-[56px] h-[56px] absolute top-[4px] right-[16px] z-[11] flex justify-center items-center">
-        <img 
-          src="/profile.png" 
-          alt="Profile Icon" 
-          className="w-full h-full object-cover"
+        <img
+          src="/profile.png"
+          alt="Profile Icon"
+          className="w-full h-full object-cover cursor-pointer"
+          onClick={() => setIsProfileOpen(true)}
         />
       </div>
+
 
       {/* Center Logo */}
       <Image 
@@ -62,7 +69,65 @@ export default function Nav() {
         height={40} 
         className="absolute left-1/2 transform -translate-x-1/2 top-[5px] ml-1 z-[12]"
       />
+    {/* Profile Popup */}
+    {isProfileOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[100]">
+          <div 
+            className="w-[460px] h-[300px] bg-cover bg-center shadow-lg rounded-lg p-6 relative flex flex-col"
+            style={{ backgroundImage: "url('/icon/pfcard.png')" }}
+            ref={profileRef}
+          >
+            {/* Close Button */}
+            <div className="absolute top-2 right-4">
+              <button onClick={() => setIsProfileOpen(false)} className="text-white text-2xl">&times;</button>
+            </div>
 
+            {/* If user has an account, show profile details */}
+            {user ? (
+              <div className="flex flex-col items-center">
+                <div className="border-2 border-gray-500 p-1 rounded-lg">
+                  <Image src="/profile-image.png" alt="Profile" width={100} height={120} className="rounded-md" />
+                </div>
+                <div className="mt-4 text-black text-lg font-bold">
+                  <p>NAME: <span className="font-normal">AH BEK</span></p>
+                  <p>TELE: <span className="font-normal">012 333 444</span></p>
+                  <p>GENDER: <span className="font-normal">MALE</span></p>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex justify-center pt-6 space-x-6">
+                  <button className="px-6 py-2 bg-black text-white rounded-md hover:bg-gray-800">
+                    EDIT
+                  </button>
+                  <button className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">
+                    LOG OUT
+                  </button>
+                </div>
+              </div>
+            ) : (
+              /* If user is not logged in, show sign-in options */
+              <div className="flex flex-col items-center text-black mt-12">
+                <h2 className="text-2xl font-bold">Welcome!</h2>
+                <p className="mt-2 text-lg">Sign in to your account</p>
+
+                {/* Buttons */}
+                <div className="mt-6 flex space-x-4">
+                  <Link href="/login">
+                    <button className="px-6 py-2 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 transition">
+                      SIGN IN
+                    </button>
+                  </Link>
+                  <Link href="/register">
+                    <button className="px-6 py-2 bg-gray-800 text-white text-lg rounded-md hover:bg-gray-900 transition">
+                      REGISTER
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       {/* Burger Menu (Sidebar) */}
       <div ref={menuRef} className={`fixed top-0 left-0 h-full w-[260px] bg-black text-white transition-transform transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} z-[100] shadow-lg`}>
         <div className="p-6">

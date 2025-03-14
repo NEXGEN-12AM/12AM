@@ -36,7 +36,7 @@ const Collection: React.FC = () => {
 
   return (
     <div className="main-container w-full min-h-screen flex flex-col items-center justify-center relative">
-      <h2 className="text-center font-humane text-[48px] md:text-[72px] lg:text-[86px] font-normal text-black tracking-[3.31px] my-8">
+      <h2 className="text-center font-humane text-[48px] md:text-[72px] lg:text-[86px] font-normal text-black tracking-[3.31px] my-3">
         NEW ARRIVAL
       </h2>
 
@@ -50,18 +50,18 @@ const Collection: React.FC = () => {
         </button>
 
         {/* Product Display */}
-        <div className="relative w-full max-w-lg h-[500px] flex items-center justify-center mt-10 perspective-1000">
+        <div className="relative w-full max-w-lg h-[420px] flex items-center justify-center mt-10 perspective-1000">
           <AnimatePresence>
             {products.map((product, index) => {
               const position = (index - selectedIndex + products.length) % products.length;
               let scale = 1, zIndex = 1, opacity = 0, xOffset = 0, rotation = 0, showButtons = false;
 
               if (position === 0) {
-                scale = 1.2; zIndex = 10; opacity = 1; rotation = 0; showButtons = true;
+                scale = 1.1; zIndex = 10; opacity = 1; rotation = 0; showButtons = true;
               } else if (position === 1) {
-                scale = 0.9; zIndex = 6; opacity = 0.6; xOffset = -260; rotation = -5; showButtons = true;
+                scale = 0.85; zIndex = 6; opacity = 0.6; xOffset = -220; rotation = -5; showButtons = true;
               } else if (position === 2) {
-                scale = 0.9; zIndex = 6; opacity = 0.6; xOffset = 260; rotation = 5; showButtons = true;
+                scale = 0.85; zIndex = 6; opacity = 0.6; xOffset = 220; rotation = 5; showButtons = true;
               }
 
               return (
@@ -75,7 +75,7 @@ const Collection: React.FC = () => {
                   onClick={() => router.push(`/product/${product.id}`)}
                 >
                   <div className="relative">
-                    <Image src={product.image} alt="Product Image" width={350} height={450} className="rounded-lg" />
+                    <Image src={product.image} alt="Product Image" width={320} height={380} className="rounded-lg" />
 
                     {/* Price Tag */}
                     <div className="absolute top-3 right-3 bg-black text-white px-3 py-1 text-lg font-bold rounded">
@@ -84,7 +84,7 @@ const Collection: React.FC = () => {
 
                     {/* Size Selection */}
                     {showButtons && (
-                      <div className="absolute bottom-[85px] left-[25px] flex space-x-2">
+                      <div className="absolute bottom-[75px] left-[20px] flex space-x-2">
                         {["S", "M", "L"].map((size) => (
                           <button
                             key={size}
@@ -103,9 +103,9 @@ const Collection: React.FC = () => {
                     {showButtons && (
                       <button
                         onClick={(e) => { e.stopPropagation(); setBookmarked((prev) => ({ ...prev, [product.id]: !prev[product.id] })); }}
-                        className="absolute bottom-[28px] left-[45px] w-6 h-6 flex items-center justify-center transition"
+                        className="absolute bottom-[26px] left-[41px] w-6 h-6 flex items-center justify-center transition"
                       >
-                        <Image src={bookmarked[product.id] ? "/icon/mark.png" : "/icon/mark1.png"} alt="Bookmark" width={40} height={40} />
+                        <Image src={bookmarked[product.id] ? "/icon/mark.png" : "/icon/mark1.png"} alt="Bookmark" width={35} height={35} />
                       </button>
                     )}
 
@@ -116,7 +116,7 @@ const Collection: React.FC = () => {
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}
                         className="absolute bottom-1 right-3 px-6 py-4 bg-green-500 text-white text-sm font-bold rounded-full transition hover:bg-green-700 flex items-center justify-center"
                       >
-                        <Image src="/icon/cart1.png" alt="Cart" width={24} height={24} />
+                        <Image src="/icon/cart1.png" alt="Cart" width={22} height={22} />
                       </motion.button>
                     )}
                   </div>
