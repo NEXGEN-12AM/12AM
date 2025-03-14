@@ -121,6 +121,11 @@ const CartPage = () => {
                 </button>
               </div>
 
+
+            {/* Subtotal */}
+            <div className="text-xl font-bold text-center ml-20">
+              ${item.price * item.quantity}
+            </div>
               <div className="text-xl font-bold text-center ml-20">${item.price * item.quantity}</div>
 
               <div className="flex justify-end w-full pr-10">
@@ -147,10 +152,25 @@ const CartPage = () => {
             CONTINUE SHOPPING
           </motion.button>
 
+
+        {/* ✅ Fixed Checkout Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => {
+            console.log("Navigating to checkout..."); // ✅ Debugging log
+            router.push("/cart/checkout");
+          }}
+          className="px-8 py-3 bg-black text-white text-lg rounded-lg focus:outline-none active:scale-95 z-50"
+        >
+          CHECKOUT
+        </motion.button>
+
           <button className="px-8 py-3 bg-black text-white text-lg rounded-lg">
             CHECKOUT
           </button>
         </div>
+
       </div>
     </div>
   );
