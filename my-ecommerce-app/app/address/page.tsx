@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function AddressPage() {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Manage Addresses</h1>
+    <div className="container mx-auto p-4 flex flex-col items-center">
+      <h1 className="flex text-2xl font-bold mb-7 mt-20 center">Manage Addresses</h1>
 
       {/* Address Manager Component */}
       <AddressManager />
