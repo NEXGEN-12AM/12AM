@@ -3,8 +3,7 @@ import Navbar from "./NavBar/Navbar";
 import HeroSection from "./Hero/Hero";
 import Collection from "@/components/Collection/Collection";
 import Item from "@/components/Items/items";
-import LoginPage from "./login/page";
-import Link from "next/link";
+
 
 export default function HomePage() {
   return (
