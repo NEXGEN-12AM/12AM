@@ -1,4 +1,4 @@
-"use client"; // ✅ Ensure this runs on the client-side
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";

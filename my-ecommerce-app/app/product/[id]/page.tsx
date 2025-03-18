@@ -1,8 +1,8 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+
+import { useState, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Navbar from "@/app/NavBar/Navbar";
 import Head from "next/head";
 
@@ -272,13 +272,13 @@ const ProductPage = () => {
               ))}
             </div>
           </div>
-          <button 
+          <button title="Previous"
   onClick={() => handleSlide("left")} 
   className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 p-3 bg-white border border-black rounded-full">
   <Image src="/icon/left.png" alt="Left" width={18} height={18} />
 </button>
 
-<button 
+<button title="Next"
   onClick={() => handleSlide("right")} 
   className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 p-3 bg-white border border-black rounded-full">
   <Image src="/icon/right.png" alt="Right" width={18} height={18} />

@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -28,7 +29,7 @@ const EditProfile = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Profile Updated:", formData);
-    router.push("/profile"); // ✅ Redirects to profile page after save
+    router.push("/profile");
   };
 
   return (
