@@ -7,6 +7,7 @@ import LoginPage from "./login/page";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
+
 export default function HomePage() {
   return (
     <>

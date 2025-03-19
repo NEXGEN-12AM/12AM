@@ -1,3 +1,4 @@
+
 "use client";
 
 import './globals.css';
@@ -13,10 +14,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // ✅ Hide Navbar on Login and Signup Pages
   const showNavbar = !["/login", "/signup"].includes(pathname);
 
+
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
+
         <SessionProvider> {/* ✅ Wrap your entire app with SessionProvider */}
+
+
           {showNavbar && <Navbar />}
           
           {/* ✅ Enhanced Page Transition Effect */}

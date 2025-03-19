@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // ✅ Added for navigation
+import { useRouter } from "next/navigation"; 
 import { motion } from "framer-motion";
 
 export default function CheckoutPage() {
-  const router = useRouter(); // ✅ Use router for navigation
+  const router = useRouter(); 
 
   const [user, setUser] = useState({
     name: "Bobby",
@@ -56,7 +56,7 @@ export default function CheckoutPage() {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-semibold mb-1">NAME</label>
-                <input
+                <input title="Name"
                   type="text"
                   value={user.name}
                   onChange={(e) => setUser({ ...user, name: e.target.value })}
@@ -162,12 +162,12 @@ export default function CheckoutPage() {
             <span>${cartItems.reduce((acc, item) => acc + (item.discountPrice || item.price), 0).toFixed(2)}</span>
           </div>
 
-          {/* ✅ Checkout Button (No Other Changes) */}
+          {/* Checkout Button (No Other Changes) */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="w-full mt-4 py-4 bg-black text-white text-lg font-semibold rounded-lg"
-            onClick={handleCheckout} // 🚀 Calls function to navigate
+            onClick={handleCheckout} 
           >
             PROCEED TO CHECKOUT
           </motion.button>

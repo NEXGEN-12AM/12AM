@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -277,10 +278,10 @@ export default function Nav() {
         </div>
         <div className="mt-16 flex justify-center">
     <Image 
-      src="/twelve11.png"  // ✅ Change this to your actual image path
+      src="/twelve11.png"
       alt="Additional Image"
-      width={150}  // ✅ Adjust size as needed
-      height={100} 
+      width={150}
+      height={100}
       className="rounded-md"
     />
   </div>

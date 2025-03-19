@@ -93,6 +93,7 @@ const EditProfile = () => {
 
     alert("Profile updated successfully!");
     router.push("/profile"); // ✅ Redirects to profile page after saving
+
   };
 
   return (
