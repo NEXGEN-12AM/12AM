@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const products = [
   { id: 1, image: "/shop/card1.png", price: "14.99$" },
-  { id: 2, image: "/shop/card1.png", price: "19.99$" },
-  { id: 3, image: "/shop/card1.png", price: "24.99$" },
+  { id: 2, image: "/shop/item2.png", price: "19.99$" },
+  { id: 3, image: "/shop/item3.png", price: "24.99$" },
   { id: 4, image: "/shop/card1.png", price: "29.99$" },
   { id: 5, image: "/shop/card1.png", price: "34.99$" },
 ];

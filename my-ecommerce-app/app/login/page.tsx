@@ -1,116 +1,177 @@
-"use client"; // ✅ Ensure this runs on the client-side
+"use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { supabase } from "@/lib/supabase"; // ✅ Import Supabase client
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Login() {
   const router = useRouter();
-  const { data: session } = useSession();
-
-  // ✅ State for User Inputs
-  const [userInput, setUserInput] = useState({
-    email: "",
-    password: "",
-  });
-
-  // ✅ State for Error Message
+  const [session, setSession] = useState<any>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // ✅ Dummy User Database (Replace with API Call)
-  const users = [
-    { email: "test@example.com", password: "password123" },
-    { email: "admin@12am.com", password: "adminpass" },
-  ];
-
-  // ✅ Handle Input Changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInput({ ...userInput, [e.target.name]: e.target.value });
-  };
-
-  // ✅ Handle Manual Login Submission
-  const handleLogin = (e: React.FormEvent) => {
+  // ✅ Check for logged-in user
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data?.user) {
+        setSession(data.user);
+      } else {
+        setSession(null);
+      }
+    };
+    checkSession();
+  }, []);
+  
+  // ✅ Handle Login with Supabase Auth
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Check if user exists in "database"
-    const user = users.find(
-      (u) => u.email === userInput.email && u.password === userInput.password
-    );
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    if (user) {
-      // ✅ Store login session
-      localStorage.setItem("user", JSON.stringify(user));
-
-      // ✅ Redirect to Dashboard
-      router.push("/dashboard");
+    if (error) {
+      setError(error.message);
     } else {
-      setError("Invalid email or password");
+      router.push("/"); // ✅ Redirect to Homepage
     }
   };
 
+  // ✅ Handle Google Sign-In
+  const handleGoogleLogin = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({ provider: "google" });
+    if (error) setError(error.message);
+  };
+
+  // ✅ Handle Logout
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setSession(null);
+  };
+
   return (
-    <div className="flex h-screen w-full">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      exit={{ opacity: 0, y: -20 }}
+      className="flex h-screen w-full"
+    >
       {/* Left Section - Black Background */}
-      <div className="hidden md:flex w-2/5 bg-black text-white flex-col justify-center items-center relative">
-        <div className="text-center">
-          <h1 className="text-[240px] font-Humane font-bold">12</h1>
-          <img src="/Login/twelve.png" alt="Twelve Twelve" className="w-[800px] max-w-[600px]" />
-          <h1 className="text-[230px] font-Humane mt-2 rotate-180">AM</h1>
+      <motion.div 
+        initial={{ x: -100, opacity: 0 }} 
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="hidden md:flex w-2/5 bg-black text-white flex-col justify-center items-center relative"
+      >
+        <div className="w-full flex flex-col justify-center items-center">
+          <Image 
+            src="/Login/12.png"
+            alt="12"
+            width={240} 
+            height={240}
+            className="w-auto h-[220px] object-contain mb-12"
+          />
+
+          <img 
+            src="/twelve1.png" 
+            alt="Twelve Twelve Twelve" 
+            className="w-full max-w-full h-[70px] object-cover"
+          />
+
+          <img 
+            src="/Login/AM.png"
+            alt="AM"
+            className="w-auto h-[220px] mt-12 object-contain rotate-180"
+          />
         </div>
-      </div>
+      </motion.div>
 
       {/* Right Section - Login Form */}
-      <div className="w-3/5 flex flex-col justify-center items-center px-12">
-        <img src="/Login/Logo.png" alt="12AM Logo" className="w-[180px] md:w-[200px] lg:w-[220px] mb-8" />
+      <motion.div 
+        initial={{ x: 100, opacity: 0 }} 
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-3/5 flex flex-col justify-center items-center px-12"
+      >
+        <motion.img 
+          src="/Login/Logo.png" 
+          alt="12AM Logo" 
+          className="w-[200px] mb-8"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        />
 
-        <h3 className="text-lg font-normal font-bronx mb-4 tracking-wider">
-          {session ? `Welcome, ${session.user?.name}!` : "SIGN IN WITH YOUR ACCOUNT"}
-        </h3>
+        <motion.h3
+          className="text-lg font-normal font-bronx mb-4 tracking-wider"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {session ? `Welcome, ${session.email}!` : "SIGN IN WITH YOUR ACCOUNT"}
+        </motion.h3>
 
         {/* If User is Logged In, Show Profile & Sign Out */}
         {session ? (
-          <div className="flex flex-col items-center">
-            <Image src={session.user?.image || "/profile.png"} alt="Profile" width={80} height={80} className="rounded-full" />
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col items-center"
+          >
+            <Image src={session.user_metadata?.avatar_url || "/profile.png"} alt="Profile" width={80} height={80} className="rounded-full" />
             <button
-              onClick={() => signOut()}
+              onClick={handleLogout}
               className="w-1/2 max-w-lg py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition mt-4"
             >
               SIGN OUT
             </button>
-          </div>
+          </motion.div>
         ) : (
-          <>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } }
+            }}
+            className="w-full max-w-lg"
+          >
             {/* Error Message */}
-            {error && <p className="text-red-500 mb-3">{error}</p>}
+            {error && <motion.p className="text-red-500 mb-3">{error}</motion.p>}
 
             {/* Login Form */}
-            <form className="w-full max-w-lg" onSubmit={handleLogin}>
-              <input
-                type="text"
-                name="email"
-                value={userInput.email}
-                onChange={handleChange}
-                placeholder="Phone number, username, or email"
+            <form onSubmit={handleLogin}>
+              <motion.input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black mb-3"
               />
-              <input
+              <motion.input
                 type="password"
-                name="password"
-                value={userInput.password}
-                onChange={handleChange}
                 placeholder="Password"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black mb-8"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black mb-6"
               />
-              <button
+              <motion.button
                 type="submit"
-                className="w-full py-3 bg-white border-2 border-black text-black font-semibold rounded-full hover:bg-black hover:text-white transition"
+                className="w-full py-3 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transition"
               >
                 LOGIN
-              </button>
+              </motion.button>
             </form>
 
-            <p className="text-gray-500 text-sm mt-2 cursor-pointer">Forgot password?</p>
+            <p className="text-gray-500 text-sm mt-3 text-center cursor-pointer hover:text-black transition-all">
+  Forgot password?
+</p>
 
             {/* OR Divider */}
             <div className="flex items-center my-6 w-full max-w-lg">
@@ -120,26 +181,21 @@ export default function Login() {
             </div>
 
             {/* Social Login Buttons */}
-            <button
-              onClick={() => signIn("google")} // ✅ Google Sign-In Function
-              className="w-full max-w-md flex items-center justify-center gap-3 py-2 border-2 border-black rounded-lg shadow-md bg-white text-black font-semibold font-kano hover:bg-black hover:text-white transition-all mb-4"
+            <motion.button
+              onClick={handleGoogleLogin}
+              className="w-full max-w-md ml-10 flex items-center justify-center gap-3 py-2 border-2 border-black rounded-lg shadow-md bg-white text-black font-semibold hover:bg-black hover:text-white transition-all mb-4"
             >
-              <img src="/Login/google1.png" alt="Google" className="w-10 h-10" />
+              <img src="/icon/googlle.png" alt="Google" className="w-10 h-10" />
               <span>Continue with Google</span>
-            </button>
+            </motion.button>
 
-            <button className="w-full max-w-md flex items-center justify-center gap-3 py-3 border-2 border-black rounded-lg shadow-md bg-white text-black font-semibold font-kano hover:bg-black hover:text-white transition-all">
-              <img src="/Login/Facebook.png" alt="Facebook" className="w-8 h-8" />
-              <span>Continue with Facebook</span>
-            </button>
-
-            {/* Sign Up Link */}
-            <p className="text-gray-500 text-sm mt-5">
-              Don’t have an account? <span className="text-blue-600 cursor-pointer">Sign up</span>
-            </p>
-          </>
+            <motion.p
+              className="text-gray-500 text-sm mt-3 text-center cursor-pointer hover:text-black transition-all">
+              Don’t have an account? <span className="text-blue-600 cursor-pointer" onClick={() => router.push("/signup")}>Sign up</span>
+            </motion.p>
+          </motion.div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

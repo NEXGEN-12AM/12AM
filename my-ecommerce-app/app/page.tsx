@@ -5,6 +5,7 @@ import Collection from "@/components/Collection/Collection";
 import Item from "@/components/Items/items";
 import LoginPage from "./login/page";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 export default function HomePage() {
   return (
@@ -28,9 +29,10 @@ export default function HomePage() {
   {/* Content Wrapper with Proper Spacing */}
   <div className="container mx-auto px-4">
     <Collection />
-    <Item />
+    <div id="shop-section"><Item /></div>
   </div>
-
+  <div>
+  </div>
         
       </main>
     </>

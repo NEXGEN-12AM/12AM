@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-black text-white py-8 px-6 z-20">
+    <footer className="bg-black text-white py-8 px-6 mt-0 relative">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-wrap justify-between gap-8">
           {/* Social Media Section */}

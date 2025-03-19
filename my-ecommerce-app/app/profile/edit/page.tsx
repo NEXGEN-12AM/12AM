@@ -1,12 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase"; // ✅ Ensure Supabase client is imported
 
 const EditProfile = () => {
   const router = useRouter();
   const [profilePic, setProfilePic] = useState("/profile-image.png");
   const [gender, setGender] = useState("male");
+  const [userId, setUserId] = useState(null); // ✅ Store Auth User ID
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -14,10 +16,49 @@ const EditProfile = () => {
     dob: "",
   });
 
+  // ✅ Fetch user details from Supabase when page loads
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.getUser();
+      if (error) {
+        console.error("Error fetching user:", error);
+        return;
+      }
+
+      setUserId(user.id); // ✅ Save Auth User ID
+
+      // ✅ Fetch user profile from 'profiles' table
+      const { data: profile, error: profileError } = await supabase
+        .from("profiles")
+        .select("first_name, last_name, phone, dob, gender")
+        .eq("id", user.id)
+        .single();
+
+      if (profileError) {
+        console.error("Error fetching profile:", profileError);
+      } else {
+        setFormData({
+          firstName: profile.first_name || "",
+          lastName: profile.last_name || "",
+          phone: profile.phone || "",
+          dob: profile.dob || "",
+        });
+        setGender(profile.gender || "male");
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  // ✅ Handle Input Change
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // ✅ Handle Profile Picture Change
   const handleProfilePicChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const imageURL = URL.createObjectURL(event.target.files[0]);
@@ -25,10 +66,33 @@ const EditProfile = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ✅ Save Updated Profile to Database
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Profile Updated:", formData);
-    router.push("/profile"); // ✅ Redirects to profile page after save
+
+    if (!userId) {
+      console.error("No authenticated user found!");
+      return;
+    }
+
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        phone: formData.phone,
+        dob: formData.dob,
+        gender: gender,
+      })
+      .eq("id", userId); // ✅ Match the user's ID in the database
+
+    if (error) {
+      console.error("Error updating profile:", error);
+      return;
+    }
+
+    alert("Profile updated successfully!");
+    router.push("/profile"); // ✅ Redirects to profile page after saving
   };
 
   return (
@@ -43,12 +107,12 @@ const EditProfile = () => {
         </div>
         <input type="file" onChange={handleProfilePicChange} className="hidden" id="file-upload" />
         <label
-  htmlFor="file-upload"
-  className="mt-2 px-6 py-1 border-2 border-black text-black font-semibold cursor-pointer transition rounded-md 
-  hover:bg-black hover:text-white"
->
-  CHANGE
-</label>
+          htmlFor="file-upload"
+          className="mt-2 px-6 py-1 border-2 border-black text-black font-semibold cursor-pointer transition rounded-md 
+          hover:bg-black hover:text-white"
+        >
+          CHANGE
+        </label>
       </div>
 
       {/* Gender Selection */}

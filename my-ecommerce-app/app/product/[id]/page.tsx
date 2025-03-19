@@ -9,8 +9,8 @@ import Head from "next/head";
 
 const products = [
   { id: 1, images: ["/shop/detail1.png", "/shop/backss1.png"], name: "Mercury Long Sleeve Sweatshirt", price: "14.99$", stock: 10, type: "Sweatshirt" },
-  { id: 2, images: ["/shop/front2.png", "/shop/back2.png"], name: "Black Hoodie", price: "19.99$", stock: 8, type: "Hoodie" },
-  { id: 3, images: ["/shop/front3.png", "/shop/back3.png"], name: "Gray Oversized Sweatshirt", price: "24.99$", stock: 5, type: "Sweatshirt" },
+  { id: 2, images: ["/shop/blackhoodie.png", "/shop/blackhoodie1.png"], name: "Black Hoodie", price: "19.99$", stock: 8, type: "Hoodie" },
+  { id: 3, images: ["/shop/white.jpg", "/shop/white11.jpg"], name: "Gray Oversized Sweatshirt", price: "24.99$", stock: 5, type: "Sweatshirt" },
   { id: 4, images: ["/shop/front4.png", "/shop/back4.png"], name: "Streetwear Hoodie", price: "29.99$", stock: 3, type: "Hoodie" },
   { id: 5, images: ["/shop/front5.png", "/shop/back5.png"], name: "Minimalist Sweatshirt", price: "34.99$", stock: 7, type: "Sweatshirt" },
 ];
@@ -97,7 +97,7 @@ const ProductPage = () => {
   <meta property="og:image" content={product?.images[0]} />
 </Head>
       {/* Navbar */}
-      <Navbar />
+      
 
       {/* Product Page Content */}
       <div className="container mx-auto px-6 py-10 mt-24">
@@ -262,9 +262,9 @@ const ProductPage = () => {
           <div className="overflow-hidden relative">
             <div className="flex transition-transform duration-300" style={{ transform: `translateX(-${slideIndex * 25}%)` }}>
               {products.slice(0, 6).map((item) => (
-                <div key={item.id} className="w-1/4 p-4 flex-shrink-0">
+                <div key={item.id} className="w-1/4 p-6 flex-shrink-0 ml-0">
                   <div className="border rounded-lg p-4 shadow-md">
-                    <Image src={item.images[0]} alt={item.name} width={200} height={250} className="rounded-md" />
+                    <Image src={item.images[0]} alt={item.name} width={200} height={250} className="rounded-md ml-8" />
                     <h3 className="text-lg font-semibold mt-2">{item.name}</h3>
                     <p className="text-gray-600">{item.price}</p>
                   </div>

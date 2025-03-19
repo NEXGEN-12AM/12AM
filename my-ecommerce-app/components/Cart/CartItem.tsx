@@ -166,9 +166,6 @@ const CartPage = () => {
           CHECKOUT
         </motion.button>
 
-          <button className="px-8 py-3 bg-black text-white text-lg rounded-lg">
-            CHECKOUT
-          </button>
         </div>
 
       </div>
