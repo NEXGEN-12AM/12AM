@@ -3,6 +3,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const supabase = require('./supabaseClient');
 const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
+const userRoutes = require('./routes/authRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 dotenv.config();
 
@@ -17,6 +20,12 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/auth", authRoutes); // ✅ Register Auth Routes
+
+app.use('/api', productRoutes);
+
+app.use('/api', userRoutes); // ✅ Register User Routes
+
+app.use('/api', orderRoutes);
 
 // test supabase connection
 app.get('/test-DB', async (req, res) => {
